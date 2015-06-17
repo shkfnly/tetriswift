@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="swiftris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
@@ -16,10 +16,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="OEc-Uo-rOa" appends="YES" id="cYf-4B-WUc"/>
+                            <outletCollection property="gestureRecognizers" destination="xcs-VO-9f2" appends="YES" id="chJ-dw-VVQ"/>
+                            <outletCollection property="gestureRecognizers" destination="B1s-iy-doA" appends="YES" id="IG4-2a-T0o"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="xcs-VO-9f2">
+                    <connections>
+                        <action selector="didPan:" destination="LVB-YS-i5n" id="lKR-qv-yWZ"/>
+                        <outlet property="delegate" destination="LVB-YS-i5n" id="c7K-Ig-QXE"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="OEc-Uo-rOa">
+                    <connections>
+                        <action selector="didTap:" destination="LVB-YS-i5n" id="OcC-40-vd1"/>
+                        <outlet property="delegate" destination="LVB-YS-i5n" id="8EY-6U-EYt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="B1s-iy-doA">
+                    <connections>
+                        <action selector="didSwipe:" destination="LVB-YS-i5n" id="Zzc-gC-sd5"/>
+                        <outlet property="delegate" destination="LVB-YS-i5n" id="DUN-9P-Yoc"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="518" y="210"/>
         </scene>
     </scenes>
 </document>
